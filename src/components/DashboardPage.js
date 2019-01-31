@@ -1,8 +1,9 @@
 import React from 'react'
+import IntervalList from './IntervalList'
 
 const DashBoardPage = () => (
   <div>
-    Dashboard page content
+    <IntervalList />
   </div>
 )
 
