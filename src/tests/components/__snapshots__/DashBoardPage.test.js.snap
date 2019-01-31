@@ -2,6 +2,6 @@
 
 exports[`should render Dashboard correctly 1`] = `
 <div>
-  Dashboard page content
+  <Connect(IntervalList) />
 </div>
 `;
