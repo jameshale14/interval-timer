@@ -52,7 +52,7 @@ export const intervals = [
     ]
   },
   {
-    id: 1,
+    id: 3,
     name: 'fitness workout 2',
     steps: [
       {
