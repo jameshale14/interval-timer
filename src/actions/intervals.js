@@ -1,3 +1,5 @@
+import database from '../firebase/firebase'
+
 //GET_INTERVALS
 export const getIntervals = () => ({
   type: 'GET_INTERVALS',
@@ -30,6 +32,16 @@ export const deleteInterval = (id) => ({
 
 //START_DELETE_INTERVAL
 
+export const startDeleteInterval = (id) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/intervals/${id}`).remove()
+      .then(() => {
+        dispatch(deleteInterval(id))
+      })
+  }
+}
+
 //SET_INTERVALS
 export const setIntervals = (intervals) => ({
   type: 'SET_INTERVALS',
@@ -37,3 +49,19 @@ export const setIntervals = (intervals) => ({
 })
 
 //START_SET_INTERVALS
+export const startSetIntervals = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/intervals`).once('value')
+      .then((snapshot) => {
+        const intervals = []
+        snapshot.forEach((childSnapshot) => {
+          intervals.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          })
+        })
+        dispatch(setIntervals(intervals))
+      })
+  }
+}

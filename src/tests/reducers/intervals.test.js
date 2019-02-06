@@ -59,7 +59,7 @@ test('should add an interval to the state when one already exists', () => {
 test('should update an interval', () => {
   const action = {
     type: 'UPDATE_INTERVAL',
-    id: 2,
+    id: "2",
     updates: {
       name: 'I am updated!'
     }
@@ -76,7 +76,7 @@ test('should update an interval', () => {
 test('should not update an interval if the ID does not exist', () => {
   const action = {
     type: 'UPDATE_INTERVAL',
-    id: 400,
+    id: "400",
     updates: {
       name: 'I should not be updated!'
     }
@@ -90,7 +90,7 @@ test('should not update an interval if the ID does not exist', () => {
 test('should delete interval from state', () => {
   const action = {
     type: 'DELETE_INTERVAL',
-    id: 1
+    id: "1"
   }
 
   const state = intervalsReducer(intervals, action)
@@ -102,7 +102,7 @@ test('should delete interval from state', () => {
 test('should not delete interval when invalid ID sent through', () => {
   const action = {
     type: 'DELETE_INTERVAL',
-    id: 40
+    id: "40"
   }
 
   const state = intervalsReducer(intervals, action)

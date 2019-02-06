@@ -1,11 +1,29 @@
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+
 import {
   getIntervals,
   createInterval,
   updateInterval,
   deleteInterval,
-  setIntervals
+  setIntervals,
+  startSetIntervals,
+  startDeleteInterval
 } from '../../actions/intervals'
 import { intervals } from '../fixtures/intervals'
+import database from '../../firebase/firebase'
+
+const uid = 'thisismytestuid'
+const defaultAuthState = { auth: { uid } }
+const createMockStore = configureMockStore([thunk])
+
+beforeEach((done) => {
+  const intervalsData = {}
+  intervals.forEach(({ id, name, steps }) => {
+    intervalsData[id] = { name, steps }
+  })
+  database.ref(`users/${uid}/intervals`).set(intervalsData).then(() => done())
+})
 
 test('should generate a getIntervals action object', () => {
   const action = getIntervals()
@@ -44,6 +62,23 @@ test('should generate a deleteInterval action object', () => {
   })
 })
 
+test('should delete interval from Firebase', (done) => {
+  const store = createMockStore(defaultAuthState)
+  store.dispatch(startDeleteInterval("2"))
+    .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+        type: 'DELETE_INTERVAL',
+        id: "2"
+      })
+      return database.ref(`users/${uid}/intervals/2`).once('value')
+    })
+    .then((snapshot) => {
+      expect(snapshot.val()).toBeFalsy()
+      done()
+    })
+})
+
 test('should generate a setIntervals action object', () => {
   const action = setIntervals(intervals)
 
@@ -51,4 +86,17 @@ test('should generate a setIntervals action object', () => {
     type: 'SET_INTERVALS',
     intervals
   })
+})
+
+test('should fetch the intervals from Firebase', (done) => {
+  const store = createMockStore(defaultAuthState)
+  store.dispatch(startSetIntervals())
+    .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+        type: 'SET_INTERVALS',
+        intervals
+      })
+      done()
+    })
 })

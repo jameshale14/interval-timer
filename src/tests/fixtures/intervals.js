@@ -1,6 +1,6 @@
 export const intervals = [
   {
-    id: 1,
+    id: "1",
     name: 'fitness workout 1',
     steps: [
       {
@@ -26,7 +26,7 @@ export const intervals = [
     ]
   },
   {
-    id: 2,
+    id: "2",
     name: 'meditation focus',
     steps: [
       {
@@ -52,7 +52,7 @@ export const intervals = [
     ]
   },
   {
-    id: 3,
+    id: "3",
     name: 'fitness workout 2',
     steps: [
       {
