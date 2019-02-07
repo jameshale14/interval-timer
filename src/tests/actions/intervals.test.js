@@ -4,12 +4,13 @@ import thunk from 'redux-thunk'
 import {
   getIntervals,
   createInterval,
+  startCreateInterval,
   updateInterval,
   startUpdateInterval,
   deleteInterval,
+  startDeleteInterval,
   setIntervals,
-  startSetIntervals,
-  startDeleteInterval
+  startSetIntervals
 } from '../../actions/intervals'
 import { intervals } from '../fixtures/intervals'
 import database from '../../firebase/firebase'
@@ -41,6 +42,43 @@ test('should generate a createInterval action object', () => {
     type: 'CREATE_INTERVAL',
     interval: intervals[1]
   })
+})
+
+test('should create an interval in firebase', (done) => {
+  const store = createMockStore(defaultAuthState)
+  const newInterval = {
+    name: 'EPIC exercises',
+    steps: [
+      {
+        type: 'activity',
+        name: 'push ups',
+        duration: 30000
+      },
+      {
+        type: 'rest',
+        name: 'rest',
+        duration: 15000
+      }
+    ]
+  }
+
+  store.dispatch(startCreateInterval(newInterval))
+    .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+        type: 'CREATE_INTERVAL',
+        interval: {
+          id: expect.any(String),
+          ...newInterval
+        }
+      })
+      return database.ref(`users/${uid}/intervals/${actions[0].interval.id}`).once('value')
+    })
+    .then((snapshot) => {
+      expect(snapshot.val()).toEqual(newInterval)
+      done()
+    })
+
 })
 
 test('should generate an updateInterval action object', () => {

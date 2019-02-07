@@ -14,6 +14,24 @@ export const createInterval = (interval) => ({
 })
 
 //START_CREATE_INTERVAL
+export const startCreateInterval = (intervalData) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    const {
+      name = '',
+      steps = []
+    } = intervalData
+    const interval = { name, steps }
+    return database.ref(`users/${uid}/intervals`).push(interval)
+      .then((ref) => {
+        dispatch(createInterval({
+          id: ref.key,
+          ...interval
+        }))
+      })
+  }
+}
+
 
 //UPDATE_INTERVAL
 export const updateInterval = (id, updates) => ({
