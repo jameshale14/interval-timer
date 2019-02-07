@@ -5,6 +5,7 @@ import {
   getIntervals,
   createInterval,
   updateInterval,
+  startUpdateInterval,
   deleteInterval,
   setIntervals,
   startSetIntervals,
@@ -51,6 +52,40 @@ test('should generate an updateInterval action object', () => {
     id: 8,
     updates
   })
+})
+
+test('should update interval on Firebase', (done) => {
+  const store = createMockStore(defaultAuthState)
+  const editedData = {
+    name: 'meditation focus round 2',
+    steps: [
+      {
+        type: 'activity',
+        name: 'focus',
+        duration: 50000
+      },
+      {
+        type: 'rest',
+        name: 'resting',
+        duration: 15000
+      }
+    ]
+  }
+
+  store.dispatch(startUpdateInterval("2", editedData))
+    .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+        type: 'UPDATE_INTERVAL',
+        id: "2",
+        updates: editedData
+      })
+      return database.ref(`users/${uid}/intervals/2`).once('value')
+    })
+    .then((snapshot) => {
+      expect(snapshot.val()).toEqual(editedData)
+      done()
+    })
 })
 
 test('should generate a deleteInterval action object', () => {

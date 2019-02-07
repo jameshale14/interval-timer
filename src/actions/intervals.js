@@ -23,6 +23,22 @@ export const updateInterval = (id, updates) => ({
 })
 
 //START_UPDATE_INTERVAL
+export const startUpdateInterval = (id, updates = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    // const {
+    //   name = '',
+    //   steps = []
+    // } = updates
+    // const interval = { name, steps }
+
+    return database.ref(`users/${uid}/intervals/${id}`).update(updates)
+      .then(() => {
+        dispatch(updateInterval(id, updates))
+      })
+  }
+}
 
 //DELETE_INTERVAL
 export const deleteInterval = (id) => ({
