@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 export const IntervalList = (props) => (
@@ -14,6 +15,10 @@ export const IntervalList = (props) => (
     }
   </div>
 )
+
+IntervalList.propTypes = {
+  intervals: PropTypes.array
+}
 
 const mapStateToProps = (state) => ({
   intervals: state.intervals

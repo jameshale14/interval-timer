@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import IntervalForm from './IntervalForm'
+import startCreateInterval from '../actions/intervals'
 
 export class CreateIntervalPage extends React.Component {
   onSubmit = (interval) => {
@@ -15,6 +17,11 @@ export class CreateIntervalPage extends React.Component {
       </div>
     )
   }
+}
+
+CreateIntervalPage.propTypes = {
+  startCreateInterval: PropTypes.func,
+  history: PropTypes.object
 }
 
 const mapDispatchToProps = (dispatch) => ({

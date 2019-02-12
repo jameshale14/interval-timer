@@ -14,9 +14,9 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <PublicRoute path='/' component={LoginPage} exact={true} />
-        <PrivateRoute path='/dashboard' component={DashBoardPage} exact={true} />
-        <PrivateRoute path='/create' component={CreateIntervalPage} exact={true} />
+        <PublicRoute path='/' component={LoginPage} exact />
+        <PrivateRoute path='/dashboard' component={DashBoardPage} exact />
+        <PrivateRoute path='/create' component={CreateIntervalPage} exact />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

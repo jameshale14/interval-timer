@@ -1,4 +1,4 @@
-// import * as firebase from 'firebase'
+/*eslint-env node*/
 
 import firebase from 'firebase/app'
 import 'firebase/auth'

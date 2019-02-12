@@ -3,7 +3,5 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 export const Interval = () => (
-  <div>
-
-  </div>
+  <div />
 )
