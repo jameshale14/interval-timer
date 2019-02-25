@@ -26,7 +26,7 @@ export const PrivateRoute = ({
 
 PrivateRoute.propTypes = {
   isAuthenticated: PropTypes.bool,
-  component: PropTypes.component
+  component: PropTypes.any
 }
 
 const MapStateToProps = (state) => ({

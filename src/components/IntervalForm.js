@@ -6,10 +6,12 @@ export default class IntervalForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      description: props.interval ? props.interval.expense : '',
+      stepError: undefined,
+      saveError: undefined,
+      name: props.interval ? props.interval.name : '',
       steps: props.interval ? props.interval.steps : [],
       newStep: {
-        type: '',
+        type: 'Activity',
         name: '',
         duration: ''
       }
@@ -18,7 +20,17 @@ export default class IntervalForm extends React.Component {
 
   handleAddStep = (e) => {
     e.preventDefault()
-    this.setState((prevState) => ({ steps: [...prevState.steps, prevState.newStep] }))
+    if (this.state.newStep.type != '' && this.state.newStep.name != '' && this.state.newStep.duration != '') {
+      this.setState((prevState) => {
+        const newStep = { ...this.state.newStep }
+        return {
+          steps: [...prevState.steps, newStep]
+        }
+      })
+      this.setState(() => ({ stepError: undefined }))
+    } else {
+      this.setState(() => ({ stepError: 'Please fill in all fields' }))
+    }
   }
 
   onTypeChange = (e) => {
@@ -41,6 +53,11 @@ export default class IntervalForm extends React.Component {
     )
   }
 
+  onIntervalNameChange = (e) => {
+    const name = e.target.value
+    this.setState(() => ({ name }))
+  }
+
   onDurationChange = (e) => {
     const duration = e.target.value
     this.setState((prevState) => {
@@ -51,34 +68,59 @@ export default class IntervalForm extends React.Component {
     )
   }
 
+  handleOnSave = (e) => {
+    e.preventDefault()
+
+    if (!this.state.name || this.state.steps.length === 0) {
+      this.setState(() => ({ saveError: 'Please provide a routine name and interval steps.' }))
+    } else {
+      this.setState(() => ({ saveError: undefined }))
+
+      const interval = {
+        name: this.state.name,
+        steps: this.state.steps
+      }
+
+      this.props.onSubmit(interval)
+    }
+
+  }
+
   render() {
     return (
       <div>
-        IntervalForm
-        <form onSubmit={this.onSubmit}>
-          <input
-            type='text'
-            placeholder='Description'
-          />
-          {
-            this.state.steps.map((step, stepIndex) => {
-              return (
-                <div key={stepIndex} >
-                  <p>Type: {step.type}</p>
-                  <p>Name: {step.name}</p>
-                  <p>Duration: {step.duration}</p>
-                </div>
-              )
+        <button onClick={this.handleOnSave}>Save</button>
+        {this.state.saveError && <p>{this.state.saveError}</p>}
+        <input
+          type='text'
+          placeholder='name'
+          value={this.state.name}
+          onChange={this.onIntervalNameChange}
+        />
+        {
+          this.state.steps.map((step, stepIndex) => {
+            return (
+              <div key={stepIndex} >
+                <p>Type: {step.type}</p>
+                <p>Name: {step.name}</p>
+                <p>Duration: {step.duration}</p>
+              </div>
+            )
 
-            })
-          }
-          <div>
-            <input
-              type='text'
-              placeholder='Type'
+          })
+        }
+        <div>
+          {this.state.stepError && <p>{this.state.stepError}</p>}
+          <form onSubmit={this.handleAddStep}>
+            <select
               value={this.state.newStep.type}
               onChange={this.onTypeChange}
-            />
+              onBlur={this.onTypeChange}
+            >
+              <option value='Activity'>Activity</option>
+              <option value='Rest'>Rest</option>
+            </select>
+
             <input
               type='text'
               placeholder='Step name'
@@ -93,8 +135,8 @@ export default class IntervalForm extends React.Component {
               onChange={this.onDurationChange}
             />
             <button onClick={this.handleAddStep}>Add Step</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     )
   }
@@ -102,5 +144,6 @@ export default class IntervalForm extends React.Component {
 }
 
 IntervalForm.propTypes = {
-  interval: PropTypes.object
+  interval: PropTypes.object,
+  onSubmit: PropTypes.func
 }

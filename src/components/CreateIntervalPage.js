@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import IntervalForm from './IntervalForm'
-import startCreateInterval from '../actions/intervals'
+import { startCreateInterval } from '../actions/intervals'
 
 export class CreateIntervalPage extends React.Component {
   onSubmit = (interval) => {

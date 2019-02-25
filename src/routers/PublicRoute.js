@@ -22,7 +22,7 @@ export const PublicRoute = ({
 
 PublicRoute.propTypes = {
   isAuthenticated: PropTypes.bool,
-  component: PropTypes.Component
+  component: PropTypes.any
 }
 
 const MapStateToProps = (state) => ({
