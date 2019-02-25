@@ -2,6 +2,13 @@
 
 exports[`should render Dashboard correctly 1`] = `
 <div>
+  <Link
+    className="button"
+    replace={false}
+    to="/create"
+  >
+    New Interval
+  </Link>
   <Connect(IntervalList) />
 </div>
 `;

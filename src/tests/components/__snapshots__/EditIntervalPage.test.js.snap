@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditIntervalPage correctly 1`] = `
+<Fragment>
+  <h3>
+    Edit Interval
+  </h3>
+  <div>
+    <IntervalForm
+      interval={
+        Object {
+          "id": "2",
+          "name": "meditation focus",
+          "steps": Array [
+            Object {
+              "duration": 30000,
+              "name": "focus",
+              "type": "activity",
+            },
+            Object {
+              "duration": 15000,
+              "name": "rest",
+              "type": "rest",
+            },
+            Object {
+              "duration": 30000,
+              "name": "focus",
+              "type": "activity",
+            },
+            Object {
+              "duration": 15000,
+              "name": "rest",
+              "type": "rest",
+            },
+          ],
+        }
+      }
+      onSubmit={[Function]}
+    />
+  </div>
+</Fragment>
+`;

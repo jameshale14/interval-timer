@@ -89,7 +89,7 @@ export default class IntervalForm extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleOnSave}>Save</button>
+        <button id='saveInterval' onClick={this.handleOnSave}>Save</button>
         {this.state.saveError && <p>{this.state.saveError}</p>}
         <input
           type='text'

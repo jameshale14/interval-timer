@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CreateIntervalPage correctly 1`] = `
+<div>
+  <IntervalForm
+    onSubmit={[Function]}
+  />
+</div>
+`;

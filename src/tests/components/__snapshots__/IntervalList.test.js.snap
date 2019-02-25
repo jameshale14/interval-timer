@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should handle intervals 1`] = `
+<div>
+  <h1>
+    Intervals
+  </h1>
+  <ExpenseListItem
+    id="1"
+    key="1"
+    name="fitness workout 1"
+    steps={
+      Array [
+        Object {
+          "duration": 20000,
+          "name": "press-ups",
+          "type": "activity",
+        },
+        Object {
+          "duration": 10000,
+          "name": "rest",
+          "type": "rest",
+        },
+        Object {
+          "duration": 20000,
+          "name": "crunches",
+          "type": "activity",
+        },
+        Object {
+          "duration": 10000,
+          "name": "rest",
+          "type": "rest",
+        },
+      ]
+    }
+  />
+  <ExpenseListItem
+    id="2"
+    key="2"
+    name="meditation focus"
+    steps={
+      Array [
+        Object {
+          "duration": 30000,
+          "name": "focus",
+          "type": "activity",
+        },
+        Object {
+          "duration": 15000,
+          "name": "rest",
+          "type": "rest",
+        },
+        Object {
+          "duration": 30000,
+          "name": "focus",
+          "type": "activity",
+        },
+        Object {
+          "duration": 15000,
+          "name": "rest",
+          "type": "rest",
+        },
+      ]
+    }
+  />
+  <ExpenseListItem
+    id="3"
+    key="3"
+    name="fitness workout 2"
+    steps={
+      Array [
+        Object {
+          "duration": 20000,
+          "name": "lunges",
+          "type": "activity",
+        },
+        Object {
+          "duration": 5000,
+          "name": "rest",
+          "type": "rest",
+        },
+        Object {
+          "duration": 30000,
+          "name": "squats",
+          "type": "activity",
+        },
+        Object {
+          "duration": 10000,
+          "name": "rest",
+          "type": "rest",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Should handle no intervals 1`] = `
+<div>
+  <h1>
+    Intervals
+  </h1>
+  <p>
+    No intervals
+  </p>
+</div>
+`;
