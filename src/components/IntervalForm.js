@@ -20,16 +20,17 @@ export default class IntervalForm extends React.Component {
 
   handleAddStep = (e) => {
     e.preventDefault()
-    if (this.state.newStep.type != '' && this.state.newStep.name != '' && this.state.newStep.duration != '') {
+    if (this.state.newStep.type == '' || this.state.newStep.name == '' || this.state.newStep.duration == 0) {
+      this.setState(() => ({ stepError: 'Please fill in all fields' }))
+    } else {
       this.setState((prevState) => {
         const newStep = { ...this.state.newStep }
         return {
-          steps: [...prevState.steps, newStep]
+          steps: [...prevState.steps, newStep],
+          stepError: undefined
         }
       })
-      this.setState(() => ({ stepError: undefined }))
-    } else {
-      this.setState(() => ({ stepError: 'Please fill in all fields' }))
+      // this.setState(() => ({  }))
     }
   }
 
@@ -39,8 +40,7 @@ export default class IntervalForm extends React.Component {
       const newStep = prevState.newStep
       newStep.type = type
       return { newStep }
-    }
-    )
+    })
   }
 
   onNameChange = (e) => {
@@ -49,8 +49,7 @@ export default class IntervalForm extends React.Component {
       const newStep = prevState.newStep
       newStep.name = name
       return { newStep }
-    }
-    )
+    })
   }
 
   onIntervalNameChange = (e) => {
@@ -64,8 +63,7 @@ export default class IntervalForm extends React.Component {
       const newStep = prevState.newStep
       newStep.duration = duration
       return { newStep }
-    }
-    )
+    })
   }
 
   handleOnSave = (e) => {
@@ -106,7 +104,6 @@ export default class IntervalForm extends React.Component {
                 <p>Duration: {step.duration}</p>
               </div>
             )
-
           })
         }
         <div>
@@ -140,7 +137,6 @@ export default class IntervalForm extends React.Component {
       </div>
     )
   }
-
 }
 
 IntervalForm.propTypes = {

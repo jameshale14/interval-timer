@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should add interval step to state and render to screen 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Rest"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should add interval step to state and render to screen 2`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Rest"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value="Pull-ups"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should add interval step to state and render to screen 3`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Rest"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value="Pull-ups"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value={20}
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should add interval step to state and render to screen 4`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div
+    key="0"
+  >
+    <p>
+      Type: 
+      Rest
+    </p>
+    <p>
+      Name: 
+      Pull-ups
+    </p>
+    <p>
+      Duration: 
+      20
+    </p>
+  </div>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Rest"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value="Pull-ups"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value={20}
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should render empty IntervalForm correctly 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Activity"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should render pre-filled IntervalForm when sending interval data 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value="meditation focus"
+  />
+  <div
+    key="0"
+  >
+    <p>
+      Type: 
+      activity
+    </p>
+    <p>
+      Name: 
+      focus
+    </p>
+    <p>
+      Duration: 
+      30000
+    </p>
+  </div>
+  <div
+    key="1"
+  >
+    <p>
+      Type: 
+      rest
+    </p>
+    <p>
+      Name: 
+      rest
+    </p>
+    <p>
+      Duration: 
+      15000
+    </p>
+  </div>
+  <div
+    key="2"
+  >
+    <p>
+      Type: 
+      activity
+    </p>
+    <p>
+      Name: 
+      focus
+    </p>
+    <p>
+      Duration: 
+      30000
+    </p>
+  </div>
+  <div
+    key="3"
+  >
+    <p>
+      Type: 
+      rest
+    </p>
+    <p>
+      Name: 
+      rest
+    </p>
+    <p>
+      Duration: 
+      15000
+    </p>
+  </div>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Activity"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should show an error when saving without enough data 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <p>
+    Please provide a routine name and interval steps.
+  </p>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Activity"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should throw error when adding step with no data 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value=""
+  />
+  <div>
+    <p>
+      Please fill in all fields
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Activity"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;

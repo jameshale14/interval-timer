@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntervalListItem should render correctly 1`] = `
+<Link
+  replace={false}
+  to="/edit/2"
+>
+  <h3>
+    meditation focus
+  </h3>
+</Link>
+`;
