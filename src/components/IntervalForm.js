@@ -84,6 +84,21 @@ export default class IntervalForm extends React.Component {
 
   }
 
+  handleRemoveStep = (e) => {
+    e.preventDefault()
+    const stepIndex = parseInt(e.currentTarget.value)
+    this.setState((prevState) => {
+      const steps = prevState.steps.filter((step, index) => {
+        return index != stepIndex
+      })
+
+      return ({
+        steps
+      })
+
+    })
+  }
+
   render() {
     return (
       <div>
@@ -102,6 +117,7 @@ export default class IntervalForm extends React.Component {
                 <p>Type: {step.type}</p>
                 <p>Name: {step.name}</p>
                 <p>Duration: {step.duration}</p>
+                <button onClick={this.handleRemoveStep} value={stepIndex}>Remove</button>
               </div>
             )
           })

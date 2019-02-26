@@ -112,3 +112,16 @@ test('should show an error when saving without enough data', () => {
   expect(wrapper.state().saveError.length).toBeGreaterThan(0)
   expect(wrapper).toMatchSnapshot()
 })
+
+test('should remove step when pressed', () => {
+  const wrapperWithDetail = shallow(<IntervalForm onSubmit={onSubmit} interval={intervals[0]} />)
+
+  wrapperWithDetail.find('button').at(2).simulate('click', {
+    preventDefault: () => { },
+    currentTarget: { value: 1 }
+  })
+
+  expect(wrapperWithDetail.state().steps).toEqual([intervals[0].steps[0], intervals[0].steps[2], intervals[0].steps[3]])
+  expect(wrapperWithDetail).toMatchSnapshot()
+
+})

@@ -200,6 +200,12 @@ exports[`should add interval step to state and render to screen 4`] = `
       Duration: 
       20
     </p>
+    <button
+      onClick={[Function]}
+      value={0}
+    >
+      Remove
+    </button>
   </div>
   <div>
     <form
@@ -233,6 +239,129 @@ exports[`should add interval step to state and render to screen 4`] = `
         step="1"
         type="number"
         value={20}
+      />
+      <button
+        onClick={[Function]}
+      >
+        Add Step
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should remove step when pressed 1`] = `
+<div>
+  <button
+    id="saveInterval"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <input
+    onChange={[Function]}
+    placeholder="name"
+    type="text"
+    value="fitness workout 1"
+  />
+  <div
+    key="0"
+  >
+    <p>
+      Type: 
+      activity
+    </p>
+    <p>
+      Name: 
+      press-ups
+    </p>
+    <p>
+      Duration: 
+      20000
+    </p>
+    <button
+      onClick={[Function]}
+      value={0}
+    >
+      Remove
+    </button>
+  </div>
+  <div
+    key="1"
+  >
+    <p>
+      Type: 
+      activity
+    </p>
+    <p>
+      Name: 
+      crunches
+    </p>
+    <p>
+      Duration: 
+      20000
+    </p>
+    <button
+      onClick={[Function]}
+      value={1}
+    >
+      Remove
+    </button>
+  </div>
+  <div
+    key="2"
+  >
+    <p>
+      Type: 
+      rest
+    </p>
+    <p>
+      Name: 
+      rest
+    </p>
+    <p>
+      Duration: 
+      10000
+    </p>
+    <button
+      onClick={[Function]}
+      value={2}
+    >
+      Remove
+    </button>
+  </div>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        onBlur={[Function]}
+        onChange={[Function]}
+        value="Activity"
+      >
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <input
+        onChange={[Function]}
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value=""
       />
       <button
         onClick={[Function]}
@@ -330,6 +459,12 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
       Duration: 
       30000
     </p>
+    <button
+      onClick={[Function]}
+      value={0}
+    >
+      Remove
+    </button>
   </div>
   <div
     key="1"
@@ -346,6 +481,12 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
       Duration: 
       15000
     </p>
+    <button
+      onClick={[Function]}
+      value={1}
+    >
+      Remove
+    </button>
   </div>
   <div
     key="2"
@@ -362,6 +503,12 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
       Duration: 
       30000
     </p>
+    <button
+      onClick={[Function]}
+      value={2}
+    >
+      Remove
+    </button>
   </div>
   <div
     key="3"
@@ -378,6 +525,12 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
       Duration: 
       15000
     </p>
+    <button
+      onClick={[Function]}
+      value={3}
+    >
+      Remove
+    </button>
   </div>
   <div>
     <form
