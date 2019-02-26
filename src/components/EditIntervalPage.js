@@ -2,12 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import IntervalForm from './IntervalForm'
-import { startUpdateInterval } from '../actions/intervals'
+import { startUpdateInterval, startDeleteInterval } from '../actions/intervals'
 
 export class EditIntervalPage extends React.Component {
 
   onSubmit = (interval) => {
     this.props.startUpdateInterval(this.props.interval.id, interval)
+    this.props.history.push('/')
+  }
+
+  handleDeleteInterval = () => {
+    this.props.startDeleteInterval(this.props.interval.id)
     this.props.history.push('/')
   }
 
@@ -18,15 +23,17 @@ export class EditIntervalPage extends React.Component {
         <div>
           <IntervalForm onSubmit={this.onSubmit} interval={this.props.interval} />
         </div>
+        <button onClick={this.handleDeleteInterval}>Remove</button>
       </>
     )
   }
 }
 
 EditIntervalPage.propTypes = {
+  history: PropTypes.object,
   interval: PropTypes.object,
-  startUpdateInterval: PropTypes.func,
-  history: PropTypes.object
+  startDeleteInterval: PropTypes.func,
+  startUpdateInterval: PropTypes.func
 }
 
 const mapStateToProps = (state, props) => ({
@@ -34,6 +41,7 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  startDeleteInterval: (id) => dispatch(startDeleteInterval(id)),
   startUpdateInterval: (id, interval) => dispatch(startUpdateInterval(id, interval))
 })
 

@@ -38,5 +38,10 @@ exports[`should render EditIntervalPage correctly 1`] = `
       onSubmit={[Function]}
     />
   </div>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
 </Fragment>
 `;
