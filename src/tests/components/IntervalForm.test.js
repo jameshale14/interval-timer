@@ -19,44 +19,15 @@ test('should render pre-filled IntervalForm when sending interval data', () => {
   expect(wrapper).toMatchSnapshot()
 })
 
-test('should add interval step to state and render to screen', () => {
+test('should add step to step list and render to screen when added from StepForm', () => {
+  const newStep = {
+    type: 'Activity',
+    name: 'Squats',
+    duration: 30
+  }
 
-  //set the type of step
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Rest' }
-  })
-  expect(wrapper.state().newStep.type).toEqual('Rest')
-  expect(wrapper).toMatchSnapshot()
-
-  //set the step name
-  wrapper.find('input').at(1).simulate('change', {
-    target: { value: 'Pull-ups' }
-  })
-  expect(wrapper.state().newStep.name).toEqual('Pull-ups')
-  expect(wrapper).toMatchSnapshot()
-
-  //set the step duration
-  wrapper.find('input').at(2).simulate('change', {
-    target: { value: 20 }
-  })
-  expect(wrapper.state().newStep.duration).toEqual(20)
-  expect(wrapper).toMatchSnapshot()
-
-  //add the step to the interval routine
-  wrapper.find('button').at(1).simulate('click', {
-    preventDefault: () => { }
-  })
-
-  expect(wrapper.state().stepError).toBe(undefined)
-  expect(wrapper.state().steps.length).toEqual(1)
-  expect(wrapper).toMatchSnapshot()
-})
-
-test('should throw error when adding step with no data', () => {
-  wrapper.find('form').simulate('submit', {
-    preventDefault: () => { }
-  })
-  expect(wrapper.state().stepError.length).toBeGreaterThan(0)
+  wrapper.find('StepForm').prop('onSubmit')(newStep)
+  expect(wrapper.state('steps')).toEqual([newStep])
   expect(wrapper).toMatchSnapshot()
 })
 
@@ -65,25 +36,13 @@ test('should fire a save event when saved with valid submission', () => {
     target: { value: 'New Interval Routine' }
   })
 
-  //set the type of step
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Activity' }
-  })
+  const newStep = {
+    type: 'Activity',
+    name: 'Push-ups',
+    duration: 30
+  }
 
-  //set the step name
-  wrapper.find('input').at(1).simulate('change', {
-    target: { value: 'Push-ups' }
-  })
-
-  //set the step duration
-  wrapper.find('input').at(2).simulate('change', {
-    target: { value: 30 }
-  })
-
-  //add the step to the interval routine
-  wrapper.find('button').at(1).simulate('click', {
-    preventDefault: () => { }
-  })
+  wrapper.find('StepForm').prop('onSubmit')(newStep)
 
   wrapper.find('button').at(0).simulate('click', {
     preventDefault: () => { }
@@ -99,6 +58,7 @@ test('should fire a save event when saved with valid submission', () => {
     ]
   })
 })
+
 
 test('should show an error when saving without enough data', () => {
   wrapper.find('button').at(0).simulate('click', {
