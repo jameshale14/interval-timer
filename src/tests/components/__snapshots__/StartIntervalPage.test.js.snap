@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartIntervalPage should render correclty 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1 />
+  <h1 />
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
