@@ -14,13 +14,11 @@ test('should render empty IntervalForm correctly', () => {
   expect(wrapper).toMatchSnapshot()
 })
 
-//TODO IntervalForm should render correctly with interval data sent over
 test('should render pre-filled IntervalForm when sending interval data', () => {
   const wrapper = shallow(<IntervalForm onSubmit={onSubmit} interval={intervals[1]} />)
   expect(wrapper).toMatchSnapshot()
 })
 
-//TODO test handleAddStep works
 test('should add interval step to state and render to screen', () => {
 
   //set the type of step
@@ -54,7 +52,6 @@ test('should add interval step to state and render to screen', () => {
   expect(wrapper).toMatchSnapshot()
 })
 
-//TODO test handleAddStep shows errors before enough data is entered
 test('should throw error when adding step with no data', () => {
   wrapper.find('form').simulate('submit', {
     preventDefault: () => { }
@@ -63,7 +60,6 @@ test('should throw error when adding step with no data', () => {
   expect(wrapper).toMatchSnapshot()
 })
 
-//TODO test handleOnSave fires
 test('should fire a save event when saved with valid submission', () => {
   wrapper.find('input').at(0).simulate('change', {
     target: { value: 'New Interval Routine' }
@@ -104,7 +100,6 @@ test('should fire a save event when saved with valid submission', () => {
   })
 })
 
-//TODO test handleOnSave shows errors before enough data is entered
 test('should show an error when saving without enough data', () => {
   wrapper.find('button').at(0).simulate('click', {
     preventDefault: () => { }
