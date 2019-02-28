@@ -9,8 +9,8 @@ export class StartIntervalPage extends React.Component {
     super(props)
     this.state = {
       currentStepIndex: 0,
-      currentStepName: '',
-      currentTimeRemaining: '',
+      currentStepName: undefined,
+      currentTimeRemaining: undefined,
       isRunning: false
     }
     this.interval = undefined
@@ -25,6 +25,10 @@ export class StartIntervalPage extends React.Component {
   }
 
   runTimer = () => {
+    if (!this.state.isRunning) {
+      return
+    }
+
     if (this.state.currentTimeRemaining == 0) {
       if (this.state.currentStepIndex < (this.props.interval.steps.length - 1)) {
         this.setState((prevState) => ({
@@ -33,6 +37,7 @@ export class StartIntervalPage extends React.Component {
         this.initialise()
       } else {
         window.clearInterval(this.interval)
+        this.setState(() => ({ isRunning: false }))
       }
 
     } else {
@@ -45,7 +50,9 @@ export class StartIntervalPage extends React.Component {
   handleStart = (e) => {
     e.preventDefault()
 
-    this.initialise()
+    if (this.state.currentTimeRemaining == undefined) {
+      this.initialise()
+    }
     this.setState(({ isRunning: true }))
     this.interval = setInterval(this.runTimer, 1000)
 
@@ -55,6 +62,25 @@ export class StartIntervalPage extends React.Component {
     e.preventDefault()
 
     window.clearInterval(this.interval)
+    this.setState(() => ({ isRunning: false }))
+  }
+
+  handleRestartStep = (e) => {
+    e.preventDefault()
+
+    this.initialise()
+    this.setState(({ isRunning: true }))
+    this.interval = setInterval(this.runTimer, 1000)
+
+  }
+
+  handleRestartWholeInterval = (e) => {
+    e.preventDefault()
+
+    this.setState(() => ({ currentStepIndex: 0 }))
+    this.initialise()
+    this.setState(({ isRunning: true }))
+    this.interval = setInterval(this.runTimer, 1000)
 
   }
 
@@ -66,6 +92,12 @@ export class StartIntervalPage extends React.Component {
         <h1>{this.state.currentTimeRemaining}</h1>
         <button onClick={this.handleStart}>Start</button>
         <button onClick={this.handleStop}>Stop</button>
+        {!this.state.isRunning && this.state.currentStepName != undefined &&
+          <>
+            <button onClick={this.handleRestartStep}>Restart Step</button>
+            <button onClick={this.handleRestartWholeInterval}>Restart Interval</button>
+          </>
+        }
       </div>
     )
   }

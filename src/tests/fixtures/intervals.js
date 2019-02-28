@@ -6,22 +6,22 @@ export const intervals = [
       {
         type: 'activity',
         name: 'press-ups',
-        duration: 20000
+        duration: 20
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 10000
+        duration: 10
       },
       {
         type: 'activity',
         name: 'crunches',
-        duration: 20000
+        duration: 20
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 10000
+        duration: 10
       },
     ]
   },
@@ -32,22 +32,22 @@ export const intervals = [
       {
         type: 'activity',
         name: 'focus',
-        duration: 30000
+        duration: 30
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 15000
+        duration: 15
       },
       {
         type: 'activity',
         name: 'focus',
-        duration: 30000
+        duration: 30
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 15000
+        duration: 15
       },
     ]
   },
@@ -58,22 +58,22 @@ export const intervals = [
       {
         type: 'activity',
         name: 'lunges',
-        duration: 20000
+        duration: 20
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 5000
+        duration: 5
       },
       {
         type: 'activity',
         name: 'squats',
-        duration: 30000
+        duration: 30
       },
       {
         type: 'rest',
         name: 'rest',
-        duration: 10000
+        duration: 10
       },
     ]
   }

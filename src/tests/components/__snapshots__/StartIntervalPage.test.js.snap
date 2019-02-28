@@ -1,12 +1,224 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StartIntervalPage should render correclty 1`] = `
+exports[`"Restart Step" button should reinitialise current step 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    rest
+  </h1>
+  <h1>
+    10
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`"Restart Step" button should reinitialise current step 2`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    press-ups
+  </h1>
+  <h1>
+    20
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`Interval should change state current step and time remaining when launched 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    press-ups
+  </h1>
+  <h1>
+    20
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`Should stop the interval after all of the steps have completed 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    rest
+  </h1>
+  <h1>
+    0
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Restart Step
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Restart Interval
+  </button>
+</div>
+`;
+
+exports[`StartIntervalPage should render correctly 1`] = `
 <div>
   <h3>
     fitness workout 1
   </h3>
   <h1 />
   <h1 />
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`Stopping the timer should stop the time remaining from decreasing 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    press-ups
+  </h1>
+  <h1>
+    18
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Restart Step
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Restart Interval
+  </button>
+</div>
+`;
+
+exports[`Time remaining of interval step should reduce by 1 second for each second the interval runs for 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    press-ups
+  </h1>
+  <h1>
+    19
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`When the timer reaches zero, the next second should set the interval step name and the time remaining to that of the next step 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    rest
+  </h1>
+  <h1>
+    10
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Start
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Stop
+  </button>
+</div>
+`;
+
+exports[`interval should resume from current time remaining when start button is clicked after being stopped 1`] = `
+<div>
+  <h3>
+    fitness workout 1
+  </h3>
+  <h1>
+    press-ups
+  </h1>
+  <h1>
+    16
+  </h1>
   <button
     onClick={[Function]}
   >
