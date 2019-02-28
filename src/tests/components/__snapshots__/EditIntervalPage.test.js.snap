@@ -13,22 +13,22 @@ exports[`should render EditIntervalPage correctly 1`] = `
           "name": "meditation focus",
           "steps": Array [
             Object {
-              "duration": 30000,
+              "duration": 30,
               "name": "focus",
               "type": "activity",
             },
             Object {
-              "duration": 15000,
+              "duration": 15,
               "name": "rest",
               "type": "rest",
             },
             Object {
-              "duration": 30000,
+              "duration": 30,
               "name": "focus",
               "type": "activity",
             },
             Object {
-              "duration": 15000,
+              "duration": 15,
               "name": "rest",
               "type": "rest",
             },

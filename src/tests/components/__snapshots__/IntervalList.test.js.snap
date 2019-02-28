@@ -12,22 +12,22 @@ exports[`Should handle intervals 1`] = `
     steps={
       Array [
         Object {
-          "duration": 20000,
+          "duration": 20,
           "name": "press-ups",
           "type": "activity",
         },
         Object {
-          "duration": 10000,
+          "duration": 10,
           "name": "rest",
           "type": "rest",
         },
         Object {
-          "duration": 20000,
+          "duration": 20,
           "name": "crunches",
           "type": "activity",
         },
         Object {
-          "duration": 10000,
+          "duration": 10,
           "name": "rest",
           "type": "rest",
         },
@@ -41,22 +41,22 @@ exports[`Should handle intervals 1`] = `
     steps={
       Array [
         Object {
-          "duration": 30000,
+          "duration": 30,
           "name": "focus",
           "type": "activity",
         },
         Object {
-          "duration": 15000,
+          "duration": 15,
           "name": "rest",
           "type": "rest",
         },
         Object {
-          "duration": 30000,
+          "duration": 30,
           "name": "focus",
           "type": "activity",
         },
         Object {
-          "duration": 15000,
+          "duration": 15,
           "name": "rest",
           "type": "rest",
         },
@@ -70,22 +70,22 @@ exports[`Should handle intervals 1`] = `
     steps={
       Array [
         Object {
-          "duration": 20000,
+          "duration": 20,
           "name": "lunges",
           "type": "activity",
         },
         Object {
-          "duration": 5000,
+          "duration": 5,
           "name": "rest",
           "type": "rest",
         },
         Object {
-          "duration": 30000,
+          "duration": 30,
           "name": "squats",
           "type": "activity",
         },
         Object {
-          "duration": 10000,
+          "duration": 10,
           "name": "rest",
           "type": "rest",
         },
