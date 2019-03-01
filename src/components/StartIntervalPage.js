@@ -44,12 +44,47 @@ export class StartIntervalPage extends React.Component {
       this.setState((prevState) => ({
         currentTimeRemaining: (prevState.currentTimeRemaining - 1)
       }))
+      this.playSound(this.state.currentTimeRemaining)
+    }
+  }
+
+  playSound = (timeRemaining) => {
+    if (timeRemaining > 3) {
+      return
+    }
+
+    if (timeRemaining == 0) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext
+      const context = new AudioContext()
+      const g = context.createGain()
+      const o = context.createOscillator()
+      o.type = 'sine'
+      o.connect(g)
+      o.frequency.value = 659.26
+      g.connect(context.destination)
+      o.start(0)
+      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 2.5)
+
+    } else {
+      const AudioContext = window.AudioContext || window.webkitAudioContext
+      const context = new AudioContext()
+      const g = context.createGain()
+      const o = context.createOscillator()
+      o.type = 'sine'
+      o.connect(g)
+      o.frequency.value = 440.0
+      g.connect(context.destination)
+      o.start(0)
+      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+
     }
   }
 
   handleStart = (e) => {
     e.preventDefault()
-
+    if (this.state.isRunning) {
+      return
+    }
     if (this.state.currentTimeRemaining == undefined) {
       this.initialise(0)
     }

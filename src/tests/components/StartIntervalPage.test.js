@@ -2,13 +2,32 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { StartIntervalPage } from '../../components/StartIntervalPage'
 import { intervals } from '../fixtures/intervals'
+import {
+  oscillatorConnect,
+  oscillatorStart,
+  createOscillator,
+  gainConnect,
+  createGain,
+  AudioContext,
+  exponentialRampToValueAtTime
+} from '../__mocks__/AudioContext'
 
 let wrapper
+
+window.AudioContext = AudioContext
 
 beforeEach(() => {
   // Use these two for mocking the intervals
   jest.clearAllTimers()
   jest.useFakeTimers()
+
+  window.AudioContext.mockClear()
+  createOscillator.mockClear()
+  createGain.mockClear()
+  oscillatorConnect.mockClear()
+  oscillatorStart.mockClear()
+  gainConnect.mockClear()
+  exponentialRampToValueAtTime.mockClear()
 
   wrapper = shallow(<StartIntervalPage interval={intervals[0]} />)
 })
@@ -209,4 +228,60 @@ test('"Restart Step" button should reinitialise current step', () => {
   expect(wrapper.state().currentStepName).toEqual(intervals[0].steps[0].name)
   expect(wrapper.state().currentTimeRemaining).toEqual((intervals[0].steps[0].duration))
   expect(wrapper).toMatchSnapshot()
+})
+
+test('when the timer reaches 3, 2 and 1 second remaining, there should be an audio signal created', () => {
+  //start interval
+  wrapper.find('button').at(0).simulate('click', {
+    preventDefault: () => { }
+  })
+
+  jest.advanceTimersByTime(16000)
+
+  expect(wrapper.state().currentTimeRemaining).toEqual(4)
+  expect(gainConnect).toHaveBeenCalledTimes(0)
+  expect(oscillatorConnect).toHaveBeenCalledTimes(0)
+  expect(oscillatorStart).toHaveBeenCalledTimes(0)
+  expect(exponentialRampToValueAtTime).toHaveBeenCalledTimes(0)
+
+  jest.advanceTimersByTime(1000)
+
+  expect(wrapper.state().currentTimeRemaining).toEqual(3)
+  expect(gainConnect).toHaveBeenCalledTimes(1)
+  expect(oscillatorConnect).toHaveBeenCalledTimes(1)
+  expect(oscillatorStart).toHaveBeenCalledTimes(1)
+  expect(exponentialRampToValueAtTime).toHaveBeenCalledTimes(1)
+  expect(exponentialRampToValueAtTime).toHaveBeenLastCalledWith(0.00001, 1)
+
+  jest.advanceTimersByTime(1000)
+  expect(wrapper.state().currentTimeRemaining).toEqual(2)
+  expect(gainConnect).toHaveBeenCalledTimes(2)
+  expect(oscillatorConnect).toHaveBeenCalledTimes(2)
+  expect(oscillatorStart).toHaveBeenCalledTimes(2)
+  expect(exponentialRampToValueAtTime).toHaveBeenCalledTimes(2)
+  expect(exponentialRampToValueAtTime).toHaveBeenLastCalledWith(0.00001, 1)
+
+  jest.advanceTimersByTime(1000)
+  expect(wrapper.state().currentTimeRemaining).toEqual(1)
+  expect(gainConnect).toHaveBeenCalledTimes(3)
+  expect(oscillatorConnect).toHaveBeenCalledTimes(3)
+  expect(oscillatorStart).toHaveBeenCalledTimes(3)
+  expect(exponentialRampToValueAtTime).toHaveBeenCalledTimes(3)
+  expect(exponentialRampToValueAtTime).toHaveBeenLastCalledWith(0.00001, 1)
+})
+
+test('when the timer reaches zero the sound should last for longer', () => {
+
+  //start interval
+  wrapper.find('button').at(0).simulate('click', {
+    preventDefault: () => { }
+  })
+
+  jest.advanceTimersByTime(20000)
+  expect(wrapper.state().currentTimeRemaining).toEqual(0)
+  expect(gainConnect).toHaveBeenCalledTimes(4)
+  expect(oscillatorConnect).toHaveBeenCalledTimes(4)
+  expect(oscillatorStart).toHaveBeenCalledTimes(4)
+  expect(exponentialRampToValueAtTime).toHaveBeenCalledTimes(4)
+  expect(exponentialRampToValueAtTime).toHaveBeenLastCalledWith(0.00001, 2.5)
 })
