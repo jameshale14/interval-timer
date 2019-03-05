@@ -1,3 +1,5 @@
+/*eslint-env browser*/
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -5,6 +7,14 @@ import IntervalForm from './IntervalForm'
 import { startUpdateInterval, startDeleteInterval } from '../actions/intervals'
 
 export class EditIntervalPage extends React.Component {
+
+  componentDidMount() {
+    document.title = 'Edit Interval | Interval Timer'
+  }
+
+  componentDidUpdate() {
+    document.title = 'Edit Interval | Interval Timer'
+  }
 
   onSubmit = (interval) => {
     this.props.startUpdateInterval(this.props.interval.id, interval)

@@ -16,6 +16,14 @@ export class StartIntervalPage extends React.Component {
     this.interval = undefined
   }
 
+  componentDidMount() {
+    document.title = 'Start Interval | Interval Timer'
+  }
+
+  componentDidUpdate() {
+    document.title = 'Start Interval | Interval Timer'
+  }
+
   initialise = (stepIndex) => {
     // const currentStepIndex = this.state.currentStepIndex
     this.setState(() => ({
