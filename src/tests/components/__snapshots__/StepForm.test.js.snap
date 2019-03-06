@@ -2,437 +2,165 @@
 
 exports[`should call onSubmit when all data is provided 1`] = `
 <div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
+  <div>
+    <form>
+      <label
+        for="stepType"
       >
-        Activity
-      </option>
-      <option
-        value="Rest"
+        Step Type
+      </label>
+      <select
+        id="stepType"
       >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value=""
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={0}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
-</div>
-`;
-
-exports[`should call onSubmit when all data is provided 2`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <label
+        for="stepName"
       >
-        Activity
-      </option>
-      <option
-        value="Rest"
+        Step Name
+      </label>
+      <input
+        id="stepName"
+        placeholder="Step name"
+        type="text"
+        value="Pull-ups"
+      />
+      <label
+        for="stepDuration"
       >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value="Pull-ups"
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={0}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
-</div>
-`;
-
-exports[`should call onSubmit when all data is provided 3`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
-      >
-        Activity
-      </option>
-      <option
-        value="Rest"
-      >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value="Pull-ups"
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={20}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
-</div>
-`;
-
-exports[`should call onSubmit when all data is provided 4`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
-      >
-        Activity
-      </option>
-      <option
-        value="Rest"
-      >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value="Pull-ups"
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={20}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
-</div>
-`;
-
-exports[`should disable the input for step name when step type is set to Rest 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Rest"
-    >
-      <option
-        value="Activity"
-      >
-        Activity
-      </option>
-      <option
-        value="Rest"
-      >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={true}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value="Rest"
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={0}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
+        Step Duration
+      </label>
+      <input
+        id="stepDuration"
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value="20"
+      />
+      <button>
+        Add Step
+      </button>
+    </form>
+  </div>
 </div>
 `;
 
 exports[`should render StepForm correctly 1`] = `
 <div>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
+  <div>
+    <form>
+      <label
+        for="stepType"
       >
-        Activity
-      </option>
-      <option
-        value="Rest"
+        Step Type
+      </label>
+      <select
+        id="stepType"
       >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value=""
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={0}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <label
+        for="stepName"
+      >
+        Step Name
+      </label>
+      <input
+        id="stepName"
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <label
+        for="stepDuration"
+      >
+        Step Duration
+      </label>
+      <input
+        id="stepDuration"
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value="0"
+      />
+      <button>
+        Add Step
+      </button>
+    </form>
+  </div>
 </div>
 `;
 
 exports[`should throw error when adding step with no data 1`] = `
 <div>
-  <p>
-    Please fill in all fields
-  </p>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="stepType"
-    >
-      Step Type
-    </label>
-    <select
-      id="stepType"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="Activity"
-    >
-      <option
-        value="Activity"
+  <div>
+    <p>
+      Please fill in all fields
+    </p>
+    <form>
+      <label
+        for="stepType"
       >
-        Activity
-      </option>
-      <option
-        value="Rest"
+        Step Type
+      </label>
+      <select
+        id="stepType"
       >
-        Rest
-      </option>
-    </select>
-    <label
-      htmlFor="stepName"
-    >
-      Step Name
-    </label>
-    <input
-      disabled={false}
-      id="stepName"
-      onChange={[Function]}
-      placeholder="Step name"
-      type="text"
-      value=""
-    />
-    <label
-      htmlFor="stepDuration"
-    >
-      Step Duration
-    </label>
-    <input
-      id="stepDuration"
-      onChange={[Function]}
-      placeholder="Duration (seconds)"
-      step="1"
-      type="number"
-      value={0}
-    />
-    <button
-      onClick={[Function]}
-    >
-      Add Step
-    </button>
-  </form>
+        <option
+          value="Activity"
+        >
+          Activity
+        </option>
+        <option
+          value="Rest"
+        >
+          Rest
+        </option>
+      </select>
+      <label
+        for="stepName"
+      >
+        Step Name
+      </label>
+      <input
+        id="stepName"
+        placeholder="Step name"
+        type="text"
+        value=""
+      />
+      <label
+        for="stepDuration"
+      >
+        Step Duration
+      </label>
+      <input
+        id="stepDuration"
+        placeholder="Duration (seconds)"
+        step="1"
+        type="number"
+        value="0"
+      />
+      <button>
+        Add Step
+      </button>
+    </form>
+  </div>
 </div>
 `;

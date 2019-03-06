@@ -1,82 +1,104 @@
 import React from 'React'
-import { shallow } from 'enzyme'
+import { fireEvent, cleanup, render } from 'react-testing-library'
 import StepForm from '../../components/StepForm'
-import { intervals } from '../fixtures/intervals'
+import 'jest-dom/extend-expect'
 
-let wrapper, onSubmit
+let onSubmit
 
 beforeEach(() => {
   onSubmit = jest.fn()
-  wrapper = shallow(<StepForm onSubmit={onSubmit} />)
 })
 
+afterEach(cleanup)
+
 test('should render StepForm correctly', () => {
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<StepForm onSubmit={onSubmit} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should throw error when adding step with no data', () => {
-  wrapper.find('form').simulate('submit', {
+  const { container, getByText, getAllByText } = render(<StepForm onSubmit={onSubmit} />)
+  const addStepButton = getByText('Add Step')
+  fireEvent.click(addStepButton, {
     preventDefault: () => { }
   })
-  expect(wrapper.state().error.length).toBeGreaterThan(0)
-  expect(wrapper).toMatchSnapshot()
+
+  const errorMessage = getAllByText('Please fill in all fields')
+  expect(errorMessage.length).toBe(1)
+  expect(container).toMatchSnapshot()
 })
 
 test('should call onSubmit when all data is provided', () => {
+  const { container, getByText, queryAllByText, getByLabelText } = render(<StepForm onSubmit={onSubmit} />)
 
-  //set the type of step
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Activity' }
-  })
-  expect(wrapper.state().type).toEqual('Activity')
-  expect(wrapper).toMatchSnapshot()
+  const newStep = {
+    type: 'Activity',
+    name: 'Pull-ups',
+    duration: '20'
+  }
 
-  //set the step name
-  wrapper.find('input').at(0).simulate('change', {
-    target: { value: 'Pull-ups' }
-  })
-  expect(wrapper.state().name).toEqual('Pull-ups')
-  expect(wrapper).toMatchSnapshot()
+  const stepType = getByLabelText('Step Type')
+  const stepName = getByLabelText('Step Name')
+  const stepDuration = getByLabelText('Step Duration')
+  const addStepButton = getByText('Add Step')
 
-  //set the step duration
-  wrapper.find('input').at(1).simulate('change', {
-    target: { value: 20 }
-  })
-  expect(wrapper.state().duration).toEqual(20)
-  expect(wrapper).toMatchSnapshot()
+  fireEvent.change(
+    stepType,
+    { target: { value: newStep.type } }
+  )
+  fireEvent.change(
+    stepName,
+    { target: { value: newStep.name } }
+  )
+  fireEvent.change(
+    stepDuration,
+    { target: { value: newStep.duration } }
+  )
 
-  //add the step to the interval routine
-  wrapper.find('button').at(0).simulate('click', {
+  fireEvent.click(addStepButton, {
     preventDefault: () => { }
   })
 
-  expect(wrapper.state().error).toBe(undefined)
-  expect(wrapper).toMatchSnapshot()
+
+  expect(onSubmit).toHaveBeenCalled()
+
+  const errorMessage = queryAllByText('Please fill in all fields')
+
+  expect(errorMessage.length).toBe(0)
+  expect(container).toMatchSnapshot()
 })
 
 test('should disable the input for step name when step type is set to Rest', () => {
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Rest' }
-  })
-  expect(wrapper.state().isRestType).toBe(true)
-  expect(wrapper.state().name).toEqual('Rest')
-  expect(wrapper).toMatchSnapshot()
+  const { getByLabelText } = render(<StepForm onSubmit={onSubmit} />)
 
-  // Try to change the input, make sure it is disabled
-  expect(wrapper.find('input').at(0).prop('disabled')).toBe(true)
+  const stepType = getByLabelText('Step Type')
+  const stepName = getByLabelText('Step Name')
 
+  fireEvent.change(
+    stepType,
+    { target: { value: 'Rest' } }
+  )
+
+  expect(stepName).toHaveAttribute('disabled')
+  expect(stepName.value).toBe('Rest')
 })
 
 test('should re-enable the input for step name when step type is set back to Activity', () => {
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Rest' }
-  })
+  const { getByLabelText } = render(<StepForm onSubmit={onSubmit} />)
 
-  wrapper.find('select').at(0).simulate('change', {
-    target: { value: 'Activity' }
-  })
+  const stepType = getByLabelText('Step Type')
+  const stepName = getByLabelText('Step Name')
 
-  // Check the name input is NOT disabled
-  expect(wrapper.find('input').at(0).prop('disabled')).toBe(false)
-  expect(wrapper.state().name).toEqual('')
+  fireEvent.change(
+    stepType,
+    { target: { value: 'Rest' } }
+  )
+
+  fireEvent.change(
+    stepType,
+    { target: { value: 'Activity' } }
+  )
+
+  expect(stepName).not.toHaveAttribute('disabled')
+  expect(stepName.value).toBe('')
 }) 

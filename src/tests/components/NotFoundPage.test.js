@@ -1,9 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { cleanup } from 'react-testing-library'
+import { renderWithRouter } from '../utils/render'
 import NotFoundPage from '../../components/NotFoundPage'
 
+afterEach(cleanup)
+
 test('should render NotFoundPage correctly', () => {
-  const wrapper = shallow(<NotFoundPage />)
-  expect(wrapper).toMatchSnapshot()
+  const { container } = renderWithRouter(<NotFoundPage />)
+  expect(container).toMatchSnapshot()
 
 })

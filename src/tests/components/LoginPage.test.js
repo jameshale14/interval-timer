@@ -1,19 +1,23 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { fireEvent, cleanup, render } from 'react-testing-library'
 import { LoginPage } from '../../components/LoginPage'
 
-let wrapper, startLogin
+let startLogin
 
 beforeEach(() => {
   startLogin = jest.fn()
-  wrapper = shallow(<LoginPage startLogin={startLogin} />)
 })
 
+afterEach(cleanup)
+
 test('should render LoginPage correctly', () => {
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<LoginPage startLogin={startLogin} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should call startLogin on button click', () => {
-  wrapper.find('button').simulate('click')
+  const { getByText } = render(<LoginPage startLogin={startLogin} />)
+  const loginButton = getByText('Login with Google')
+  fireEvent.click(loginButton)
   expect(startLogin).toHaveBeenCalled()
 })
