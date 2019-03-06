@@ -130,9 +130,9 @@ export class StartIntervalPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.props.interval.name}</h3>
-        <h1>{this.state.currentStepName}</h1>
-        <h1>{this.state.currentTimeRemaining}</h1>
+        <h3 data-testid='interval-name'>{this.props.interval.name}</h3>
+        <h1 data-testid='step-name'>{this.state.currentStepName}</h1>
+        <h1 data-testid='time-remaining'>{this.state.currentTimeRemaining}</h1>
         <button onClick={this.handleStart}>Start</button>
         <button onClick={this.handleStop}>Stop</button>
         {!this.state.isRunning && this.state.currentStepName != undefined &&
