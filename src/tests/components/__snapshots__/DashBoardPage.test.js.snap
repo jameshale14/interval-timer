@@ -1,14 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Dashboard correctly 1`] = `
+exports[`should render dashboard correctly 1`] = `
 <div>
-  <Link
-    className="button"
-    replace={false}
-    to="/create"
-  >
-    New Interval
-  </Link>
-  <Connect(IntervalList) />
+  <div>
+    <a
+      class="button"
+      href="/create"
+    >
+      New Interval
+    </a>
+    <div>
+      <h1>
+        Intervals
+      </h1>
+      <p>
+        No intervals
+      </p>
+    </div>
+  </div>
 </div>
 `;
