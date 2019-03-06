@@ -2,106 +2,71 @@
 
 exports[`Should handle intervals 1`] = `
 <div>
-  <h1>
-    Intervals
-  </h1>
-  <IntervalListItem
-    id="1"
-    key="1"
-    name="fitness workout 1"
-    steps={
-      Array [
-        Object {
-          "duration": "20",
-          "name": "press-ups",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "10",
-          "name": "Rest",
-          "type": "Rest",
-        },
-        Object {
-          "duration": "20",
-          "name": "crunches",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "10",
-          "name": "Rest",
-          "type": "Rest",
-        },
-      ]
-    }
-  />
-  <IntervalListItem
-    id="2"
-    key="2"
-    name="meditation focus"
-    steps={
-      Array [
-        Object {
-          "duration": "30",
-          "name": "focus",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "15",
-          "name": "Rest",
-          "type": "Rest",
-        },
-        Object {
-          "duration": "30",
-          "name": "focus",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "15",
-          "name": "Rest",
-          "type": "Rest",
-        },
-      ]
-    }
-  />
-  <IntervalListItem
-    id="3"
-    key="3"
-    name="fitness workout 2"
-    steps={
-      Array [
-        Object {
-          "duration": "20",
-          "name": "lunges",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "5",
-          "name": "Rest",
-          "type": "Rest",
-        },
-        Object {
-          "duration": "30",
-          "name": "squats",
-          "type": "Activity",
-        },
-        Object {
-          "duration": "10",
-          "name": "Rest",
-          "type": "Rest",
-        },
-      ]
-    }
-  />
+  <div>
+    <h1>
+      Intervals
+    </h1>
+    <div>
+      <a
+        href="/edit/1"
+      >
+        <h3>
+          fitness workout 1
+        </h3>
+      </a>
+      <a
+        href="/start/1"
+      >
+        <h3>
+          Start
+        </h3>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/edit/2"
+      >
+        <h3>
+          meditation focus
+        </h3>
+      </a>
+      <a
+        href="/start/2"
+      >
+        <h3>
+          Start
+        </h3>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/edit/3"
+      >
+        <h3>
+          fitness workout 2
+        </h3>
+      </a>
+      <a
+        href="/start/3"
+      >
+        <h3>
+          Start
+        </h3>
+      </a>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Should handle no intervals 1`] = `
 <div>
-  <h1>
-    Intervals
-  </h1>
-  <p>
-    No intervals
-  </p>
+  <div>
+    <h1>
+      Intervals
+    </h1>
+    <p>
+      No intervals
+    </p>
+  </div>
 </div>
 `;

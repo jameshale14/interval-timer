@@ -1,16 +1,20 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { fireEvent, cleanup, render } from 'react-testing-library'
+import { renderWithRouter } from '../utils/render'
 import { IntervalList } from '../../components/IntervalList'
 import { intervals } from '../fixtures/intervals'
 
-test('Should handle intervals', () => {
-  const wrapper = shallow(<IntervalList intervals={intervals} />)
+afterEach(cleanup)
 
-  expect(wrapper).toMatchSnapshot()
+test('Should handle intervals', () => {
+  const { container } = renderWithRouter(<IntervalList intervals={intervals} />)
+
+  expect(container).toMatchSnapshot()
 })
 
 test('Should handle no intervals', () => {
-  const wrapper = shallow(<IntervalList />)
+  const { container } = renderWithRouter(<IntervalList />)
 
-  expect(wrapper).toMatchSnapshot()
+  expect(container).toMatchSnapshot()
 })
