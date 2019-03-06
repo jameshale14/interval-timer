@@ -1,47 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render EditIntervalPage correctly 1`] = `
-<Fragment>
+<div>
   <h3>
     Edit Interval
   </h3>
   <div>
-    <IntervalForm
-      interval={
-        Object {
-          "id": "2",
-          "name": "meditation focus",
-          "steps": Array [
-            Object {
-              "duration": 30,
-              "name": "focus",
-              "type": "activity",
-            },
-            Object {
-              "duration": 15,
-              "name": "rest",
-              "type": "rest",
-            },
-            Object {
-              "duration": 30,
-              "name": "focus",
-              "type": "activity",
-            },
-            Object {
-              "duration": 15,
-              "name": "rest",
-              "type": "rest",
-            },
-          ],
-        }
-      }
-      onSubmit={[Function]}
-    />
+    <div>
+      <button
+        id="saveInterval"
+      >
+        Save
+      </button>
+      <input
+        placeholder="name"
+        type="text"
+        value="meditation focus"
+      />
+      <div>
+        <p>
+          Type: 
+          activity
+        </p>
+        <p>
+          Name: 
+          focus
+        </p>
+        <p>
+          Duration: 
+          30
+        </p>
+        <button
+          value="0"
+        >
+          Remove
+        </button>
+      </div>
+      <div>
+        <p>
+          Type: 
+          rest
+        </p>
+        <p>
+          Name: 
+          rest
+        </p>
+        <p>
+          Duration: 
+          15
+        </p>
+        <button
+          value="1"
+        >
+          Remove
+        </button>
+      </div>
+      <div>
+        <p>
+          Type: 
+          activity
+        </p>
+        <p>
+          Name: 
+          focus
+        </p>
+        <p>
+          Duration: 
+          30
+        </p>
+        <button
+          value="2"
+        >
+          Remove
+        </button>
+      </div>
+      <div>
+        <p>
+          Type: 
+          rest
+        </p>
+        <p>
+          Name: 
+          rest
+        </p>
+        <p>
+          Duration: 
+          15
+        </p>
+        <button
+          value="3"
+        >
+          Remove
+        </button>
+      </div>
+      <div>
+        <form>
+          <select>
+            <option
+              value="Activity"
+            >
+              Activity
+            </option>
+            <option
+              value="Rest"
+            >
+              Rest
+            </option>
+          </select>
+          <input
+            placeholder="Step name"
+            type="text"
+            value=""
+          />
+          <input
+            placeholder="Duration (seconds)"
+            step="1"
+            type="number"
+            value="0"
+          />
+          <button>
+            Add Step
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  <button
-    onClick={[Function]}
-  >
-    Remove
+  <button>
+    Remove Interval
   </button>
-</Fragment>
+</div>
 `;

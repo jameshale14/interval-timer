@@ -1,23 +1,28 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { fireEvent, cleanup, render } from 'react-testing-library'
 import { EditIntervalPage } from '../../components/EditIntervalPage'
 import { intervals } from '../fixtures/intervals'
 
-let startUpdateInterval, startDeleteInterval, history, wrapper
+let startUpdateInterval, startDeleteInterval, history
 
 beforeEach(() => {
   startUpdateInterval = jest.fn()
   startDeleteInterval = jest.fn()
   history = { push: jest.fn() }
-  wrapper = shallow(<EditIntervalPage startDeleteInterval={startDeleteInterval} startUpdateInterval={startUpdateInterval} history={history} interval={intervals[1]} />)
 })
 
+afterEach(cleanup)
+
+
 test('should render EditIntervalPage correctly', () => {
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<EditIntervalPage startDeleteInterval={startDeleteInterval} startUpdateInterval={startUpdateInterval} history={history} interval={intervals[1]} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should handle deleting an interval', () => {
-  wrapper.find('button').at(0).simulate('click', {
+  const { getByText } = render(<EditIntervalPage startDeleteInterval={startDeleteInterval} startUpdateInterval={startUpdateInterval} history={history} interval={intervals[1]} />)
+  const deleteButton = getByText('Remove Interval')
+  fireEvent.click(deleteButton, {
     preventDefault: () => { }
   })
   expect(history.push).toHaveBeenLastCalledWith('/')
@@ -25,7 +30,11 @@ test('should handle deleting an interval', () => {
 })
 
 test('should handle onSubmit', () => {
-  wrapper.find('IntervalForm').prop('onSubmit')(intervals[1])
+  const { getByText } = render(<EditIntervalPage startDeleteInterval={startDeleteInterval} startUpdateInterval={startUpdateInterval} history={history} interval={intervals[1]} />)
+  const submitButton = getByText('Save')
+  fireEvent.click(submitButton, {
+    preventDefault: () => { }
+  })
   expect(history.push).toHaveBeenLastCalledWith('/')
-  expect(startUpdateInterval).toHaveBeenLastCalledWith(intervals[1].id, intervals[1])
+  expect(startUpdateInterval).toHaveBeenLastCalledWith(intervals[1].id, { name: intervals[1].name, steps: intervals[1].steps })
 })

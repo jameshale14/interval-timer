@@ -33,7 +33,7 @@ export class EditIntervalPage extends React.Component {
         <div>
           <IntervalForm onSubmit={this.onSubmit} interval={this.props.interval} />
         </div>
-        <button onClick={this.handleDeleteInterval}>Remove</button>
+        <button onClick={this.handleDeleteInterval}>Remove Interval</button>
       </>
     )
   }
