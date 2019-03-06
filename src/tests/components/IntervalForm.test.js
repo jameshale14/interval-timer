@@ -1,50 +1,98 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { fireEvent, cleanup, render } from 'react-testing-library'
 import IntervalForm from '../../components/IntervalForm'
 import { intervals } from '../fixtures/intervals'
 
-let wrapper, onSubmit
+let onSubmit
 
 beforeEach(() => {
   onSubmit = jest.fn()
-  wrapper = shallow(<IntervalForm onSubmit={onSubmit} />)
 })
 
+afterEach(cleanup)
+
 test('should render empty IntervalForm correctly', () => {
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<IntervalForm onSubmit={onSubmit} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should render pre-filled IntervalForm when sending interval data', () => {
-  const wrapper = shallow(<IntervalForm onSubmit={onSubmit} interval={intervals[1]} />)
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<IntervalForm onSubmit={onSubmit} interval={intervals[1]} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should add step to step list and render to screen when added from StepForm', () => {
+  const { container, getByText, queryAllByText, getByLabelText } = render(<IntervalForm onSubmit={onSubmit} />)
+
   const newStep = {
     type: 'Activity',
     name: 'Squats',
     duration: 30
   }
+  const stepType = getByLabelText('Step Type')
+  const stepName = getByLabelText('Step Name')
+  const stepDuration = getByLabelText('Step Duration')
+  const addStepButton = getByText('Add Step')
 
-  wrapper.find('StepForm').prop('onSubmit')(newStep)
-  expect(wrapper.state('steps')).toEqual([newStep])
-  expect(wrapper).toMatchSnapshot()
+  fireEvent.change(
+    stepType,
+    { target: { value: newStep.type } }
+  )
+  fireEvent.change(
+    stepName,
+    { target: { value: newStep.name } }
+  )
+  fireEvent.change(
+    stepDuration,
+    { target: { value: newStep.duration } }
+  )
+
+  fireEvent.click(addStepButton, {
+    preventDefault: () => { }
+  })
+
+  const addedStep = queryAllByText(`Name: ${newStep.name}`)
+  expect(addedStep.length).toEqual(1)
+  expect(container).toMatchSnapshot()
 })
 
 test('should fire a save event when saved with valid submission', () => {
-  wrapper.find('input').at(0).simulate('change', {
+  const { getByText, getByLabelText } = render(<IntervalForm onSubmit={onSubmit} />)
+  const submitButton = getByText('Save')
+  const title = getByLabelText('Name')
+
+
+  fireEvent.change(title, {
     target: { value: 'New Interval Routine' }
   })
+
+  const stepType = getByLabelText('Step Type')
+  const stepName = getByLabelText('Step Name')
+  const stepDuration = getByLabelText('Step Duration')
+  const addStepButton = getByText('Add Step')
 
   const newStep = {
     type: 'Activity',
     name: 'Push-ups',
-    duration: 30
+    duration: "30"
   }
+  fireEvent.change(
+    stepType,
+    { target: { value: newStep.type } }
+  )
+  fireEvent.change(
+    stepName,
+    { target: { value: newStep.name } }
+  )
+  fireEvent.change(
+    stepDuration,
+    { target: { value: newStep.duration } }
+  )
+  fireEvent.click(addStepButton, {
+    preventDefault: () => { }
+  })
 
-  wrapper.find('StepForm').prop('onSubmit')(newStep)
-
-  wrapper.find('button').at(0).simulate('click', {
+  fireEvent.click(submitButton, {
     preventDefault: () => { }
   })
   expect(onSubmit).toHaveBeenLastCalledWith({
@@ -53,7 +101,7 @@ test('should fire a save event when saved with valid submission', () => {
       {
         type: 'Activity',
         name: 'Push-ups',
-        duration: 30
+        duration: "30"
       }
     ]
   })
@@ -61,22 +109,30 @@ test('should fire a save event when saved with valid submission', () => {
 
 
 test('should show an error when saving without enough data', () => {
-  wrapper.find('button').at(0).simulate('click', {
+  const { container, getByText, getAllByText } = render(<IntervalForm onSubmit={onSubmit} />)
+
+  const submitButton = getByText('Save')
+  fireEvent.click(submitButton, {
     preventDefault: () => { }
   })
-  expect(wrapper.state().saveError.length).toBeGreaterThan(0)
-  expect(wrapper).toMatchSnapshot()
+
+  const errorMessage = getAllByText('Please provide a routine name and interval steps.')
+  expect(errorMessage.length).toEqual(1)
+  expect(container).toMatchSnapshot()
 })
 
 test('should remove step when pressed', () => {
-  const wrapperWithDetail = shallow(<IntervalForm onSubmit={onSubmit} interval={intervals[0]} />)
 
-  wrapperWithDetail.find('button').at(2).simulate('click', {
+  const { container, getAllByText, queryAllByText } = render(<IntervalForm onSubmit={onSubmit} interval={intervals[0]} />)
+  const removeStepButton = getAllByText('Remove')
+
+  fireEvent.click(removeStepButton[2], {
     preventDefault: () => { },
-    currentTarget: { value: 1 }
+    currentTarget: { value: 2 }
   })
 
-  expect(wrapperWithDetail.state().steps).toEqual([intervals[0].steps[0], intervals[0].steps[2], intervals[0].steps[3]])
-  expect(wrapperWithDetail).toMatchSnapshot()
+  const removedStepText = queryAllByText(intervals[0].steps[2].name)
+  expect(removedStepText.length).toEqual(0)
+  expect(container).toMatchSnapshot()
 
 })

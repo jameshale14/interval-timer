@@ -1,16 +1,14 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { fireEvent, cleanup, render } from 'react-testing-library'
 import { CreateIntervalPage } from '../../components/CreateIntervalPage'
 import { intervals } from '../fixtures/intervals'
 
-let startCreateInterval, history, wrapper
+let startCreateInterval, history
 
 beforeEach(() => {
   startCreateInterval = jest.fn()
   history = { push: jest.fn() }
-  wrapper = render(<CreateIntervalPage startCreateInterval={startCreateInterval} history={history} />)
-})
+  })
 
 afterEach(cleanup)
 
