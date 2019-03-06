@@ -1,8 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { cleanup, render } from 'react-testing-library'
 import LoadingPage from '../../components/LoadingPage'
 
+afterEach(cleanup)
+
 test('should render LoadingPage correctly', () => {
-  const wrapper = shallow(<LoadingPage />)
-  expect(wrapper).toMatchSnapshot()
+  const { container } = render(<LoadingPage />)
+  expect(container).toMatchSnapshot()
 })

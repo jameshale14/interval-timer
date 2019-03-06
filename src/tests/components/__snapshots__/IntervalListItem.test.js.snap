@@ -2,21 +2,21 @@
 
 exports[`IntervalListItem should render correctly 1`] = `
 <div>
-  <Link
-    replace={false}
-    to="/edit/2"
-  >
-    <h3>
-      meditation focus
-    </h3>
-  </Link>
-  <Link
-    replace={false}
-    to="/start/2"
-  >
-    <h3>
-      Start
-    </h3>
-  </Link>
+  <div>
+    <a
+      href="/edit/2"
+    >
+      <h3>
+        meditation focus
+      </h3>
+    </a>
+    <a
+      href="/start/2"
+    >
+      <h3>
+        Start
+      </h3>
+    </a>
+  </div>
 </div>
 `;
