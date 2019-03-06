@@ -1,19 +1,24 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { fireEvent, cleanup } from 'react-testing-library'
+import { renderWithRouter } from '../utils/render'
 import { Header } from '../../components/Header'
 
-let wrapper, startLogout
+let startLogout
 
 beforeEach(() => {
   startLogout = jest.fn()
-  wrapper = shallow(<Header startLogout={startLogout} />)
 })
 
+afterEach(cleanup)
+
 test('should render Header correctly', () => {
-  expect(wrapper).toMatchSnapshot()
+  const { container } = renderWithRouter(<Header startLogout={startLogout} />)
+  expect(container).toMatchSnapshot()
 })
 
 test('should call startLogout on button click', () => {
-  wrapper.find('button').simulate('click')
+  const { getByText } = renderWithRouter(<Header startLogout={startLogout} />)
+  const logoutButton = getByText('Logout')
+  fireEvent.click(logoutButton)
   expect(startLogout).toHaveBeenCalled()
 })

@@ -1,31 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly 1`] = `
-<header
-  className="header"
->
-  <div
-    className="content-container"
+<div>
+  <header
+    class="header"
   >
     <div
-      className="header__content"
+      class="content-container"
     >
-      <Link
-        className="header__title"
-        replace={false}
-        to="/dashboard"
+      <div
+        class="header__content"
       >
-        <h1>
-          Interval Timer
-        </h1>
-      </Link>
-      <button
-        className="button button--link"
-        onClick={[MockFunction]}
-      >
-        Logout
-      </button>
+        <a
+          class="header__title"
+          href="/dashboard"
+        >
+          <h1>
+            Interval Timer
+          </h1>
+        </a>
+        <button
+          class="button button--link"
+        >
+          Logout
+        </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>
 `;
