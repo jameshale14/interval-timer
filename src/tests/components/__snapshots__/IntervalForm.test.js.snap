@@ -8,7 +8,13 @@ exports[`should add step to step list and render to screen when added from StepF
   >
     Save
   </button>
+  <label
+    htmlFor="intervalName"
+  >
+    Name
+  </label>
   <input
+    id="intervalName"
     onChange={[Function]}
     placeholder="name"
     type="text"
@@ -50,7 +56,13 @@ exports[`should remove step when pressed 1`] = `
   >
     Save
   </button>
+  <label
+    htmlFor="intervalName"
+  >
+    Name
+  </label>
   <input
+    id="intervalName"
     onChange={[Function]}
     placeholder="name"
     type="text"
@@ -61,7 +73,7 @@ exports[`should remove step when pressed 1`] = `
   >
     <p>
       Type: 
-      activity
+      Activity
     </p>
     <p>
       Name: 
@@ -83,7 +95,7 @@ exports[`should remove step when pressed 1`] = `
   >
     <p>
       Type: 
-      activity
+      Activity
     </p>
     <p>
       Name: 
@@ -105,11 +117,11 @@ exports[`should remove step when pressed 1`] = `
   >
     <p>
       Type: 
-      rest
+      Rest
     </p>
     <p>
       Name: 
-      rest
+      Rest
     </p>
     <p>
       Duration: 
@@ -136,7 +148,13 @@ exports[`should render empty IntervalForm correctly 1`] = `
   >
     Save
   </button>
+  <label
+    htmlFor="intervalName"
+  >
+    Name
+  </label>
   <input
+    id="intervalName"
     onChange={[Function]}
     placeholder="name"
     type="text"
@@ -156,7 +174,13 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
   >
     Save
   </button>
+  <label
+    htmlFor="intervalName"
+  >
+    Name
+  </label>
   <input
+    id="intervalName"
     onChange={[Function]}
     placeholder="name"
     type="text"
@@ -167,7 +191,7 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
   >
     <p>
       Type: 
-      activity
+      Activity
     </p>
     <p>
       Name: 
@@ -189,11 +213,11 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
   >
     <p>
       Type: 
-      rest
+      Rest
     </p>
     <p>
       Name: 
-      rest
+      Rest
     </p>
     <p>
       Duration: 
@@ -211,7 +235,7 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
   >
     <p>
       Type: 
-      activity
+      Activity
     </p>
     <p>
       Name: 
@@ -233,11 +257,11 @@ exports[`should render pre-filled IntervalForm when sending interval data 1`] = 
   >
     <p>
       Type: 
-      rest
+      Rest
     </p>
     <p>
       Name: 
-      rest
+      Rest
     </p>
     <p>
       Duration: 
@@ -267,7 +291,13 @@ exports[`should show an error when saving without enough data 1`] = `
   <p>
     Please provide a routine name and interval steps.
   </p>
+  <label
+    htmlFor="intervalName"
+  >
+    Name
+  </label>
   <input
+    id="intervalName"
     onChange={[Function]}
     placeholder="name"
     type="text"

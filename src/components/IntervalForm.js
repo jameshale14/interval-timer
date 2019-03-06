@@ -62,7 +62,9 @@ export default class IntervalForm extends React.Component {
       <div>
         <button id='saveInterval' onClick={this.handleOnSave}>Save</button>
         {this.state.saveError && <p>{this.state.saveError}</p>}
+        <label htmlFor='intervalName'>Name</label>
         <input
+          id='intervalName'
           type='text'
           placeholder='name'
           value={this.state.name}

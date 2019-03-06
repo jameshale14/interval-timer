@@ -6,7 +6,7 @@ exports[`"Restart Step" button should reinitialise current step 1`] = `
     fitness workout 1
   </h3>
   <h1>
-    rest
+    Rest
   </h1>
   <h1>
     10
@@ -78,7 +78,7 @@ exports[`Should stop the interval after all of the steps have completed 1`] = `
     fitness workout 1
   </h3>
   <h1>
-    rest
+    Rest
   </h1>
   <h1>
     0
@@ -190,7 +190,7 @@ exports[`When the timer reaches zero, the next second should set the interval st
     fitness workout 1
   </h3>
   <h1>
-    rest
+    Rest
   </h1>
   <h1>
     10

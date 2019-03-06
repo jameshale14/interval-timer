@@ -4,24 +4,24 @@ export const intervals = [
     name: 'fitness workout 1',
     steps: [
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'press-ups',
-        duration: 20
+        duration: "20"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 10
+        type: 'Rest',
+        name: 'Rest',
+        duration: "10"
       },
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'crunches',
-        duration: 20
+        duration: "20"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 10
+        type: 'Rest',
+        name: 'Rest',
+        duration: "10"
       },
     ]
   },
@@ -30,24 +30,24 @@ export const intervals = [
     name: 'meditation focus',
     steps: [
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'focus',
-        duration: 30
+        duration: "30"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 15
+        type: 'Rest',
+        name: 'Rest',
+        duration: "15"
       },
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'focus',
-        duration: 30
+        duration: "30"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 15
+        type: 'Rest',
+        name: 'Rest',
+        duration: "15"
       },
     ]
   },
@@ -56,24 +56,24 @@ export const intervals = [
     name: 'fitness workout 2',
     steps: [
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'lunges',
-        duration: 20
+        duration: "20"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 5
+        type: 'Rest',
+        name: 'Rest',
+        duration: "5"
       },
       {
-        type: 'activity',
+        type: 'Activity',
         name: 'squats',
-        duration: 30
+        duration: "30"
       },
       {
-        type: 'rest',
-        name: 'rest',
-        duration: 10
+        type: 'Rest',
+        name: 'Rest',
+        duration: "10"
       },
     ]
   }

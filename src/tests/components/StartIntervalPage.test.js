@@ -100,7 +100,7 @@ test('When the timer reaches zero, the next second should set the interval step 
     preventDefault: () => { }
   })
 
-  jest.advanceTimersByTime(1000 * (intervals[0].steps[0].duration + 1))
+  jest.advanceTimersByTime(1000 * (parseInt(intervals[0].steps[0].duration) + 1))
 
   expect(wrapper.state().currentStepIndex).toEqual(1)
   expect(wrapper.state().currentStepName).toEqual(intervals[0].steps[1].name)

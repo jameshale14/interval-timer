@@ -51,7 +51,9 @@ export default class StepForm extends React.Component {
       <div>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleAddStep}>
+          <label htmlFor='stepType' >Step Type</label>
           <select
+            id='stepType'
             value={this.state.type}
             onChange={this.onTypeChange}
             onBlur={this.onTypeChange}
@@ -60,14 +62,19 @@ export default class StepForm extends React.Component {
             <option value='Rest'>Rest</option>
           </select>
 
+          <label htmlFor='stepName'>Step Name</label>
           <input
+            id='stepName'
             type='text'
             placeholder='Step name'
             value={this.state.name}
             onChange={this.onNameChange}
             disabled={this.state.isRestType}
           />
+
+          <label htmlFor='stepDuration'>Step Duration</label>
           <input
+            id='stepDuration'
             type='number'
             placeholder='Duration (seconds)'
             step='1'

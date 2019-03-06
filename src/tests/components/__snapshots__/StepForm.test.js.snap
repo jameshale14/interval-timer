@@ -5,7 +5,13 @@ exports[`should call onSubmit when all data is provided 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -21,14 +27,26 @@ exports[`should call onSubmit when all data is provided 1`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value=""
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -49,7 +67,13 @@ exports[`should call onSubmit when all data is provided 2`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -65,14 +89,26 @@ exports[`should call onSubmit when all data is provided 2`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value="Pull-ups"
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -93,7 +129,13 @@ exports[`should call onSubmit when all data is provided 3`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -109,14 +151,26 @@ exports[`should call onSubmit when all data is provided 3`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value="Pull-ups"
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -137,7 +191,13 @@ exports[`should call onSubmit when all data is provided 4`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -153,14 +213,26 @@ exports[`should call onSubmit when all data is provided 4`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value="Pull-ups"
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -181,7 +253,13 @@ exports[`should disable the input for step name when step type is set to Rest 1`
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Rest"
@@ -197,14 +275,26 @@ exports[`should disable the input for step name when step type is set to Rest 1`
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={true}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value="Rest"
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -225,7 +315,13 @@ exports[`should render StepForm correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -241,14 +337,26 @@ exports[`should render StepForm correctly 1`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value=""
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
@@ -272,7 +380,13 @@ exports[`should throw error when adding step with no data 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="stepType"
+    >
+      Step Type
+    </label>
     <select
+      id="stepType"
       onBlur={[Function]}
       onChange={[Function]}
       value="Activity"
@@ -288,14 +402,26 @@ exports[`should throw error when adding step with no data 1`] = `
         Rest
       </option>
     </select>
+    <label
+      htmlFor="stepName"
+    >
+      Step Name
+    </label>
     <input
       disabled={false}
+      id="stepName"
       onChange={[Function]}
       placeholder="Step name"
       type="text"
       value=""
     />
+    <label
+      htmlFor="stepDuration"
+    >
+      Step Duration
+    </label>
     <input
+      id="stepDuration"
       onChange={[Function]}
       placeholder="Duration (seconds)"
       step="1"
