@@ -37,7 +37,10 @@ export class StartIntervalPage extends React.Component {
       return
     }
 
-    if (this.state.currentTimeRemaining == 0) {
+    const currTime = this.state.currentTimeRemaining - 1
+    this.playSound(currTime)
+
+    if (this.state.currentTimeRemaining == 1) {
       if (this.state.currentStepIndex < (this.props.interval.steps.length - 1)) {
         this.setState((prevState) => ({
           currentStepIndex: (prevState.currentStepIndex + 1)
@@ -49,10 +52,14 @@ export class StartIntervalPage extends React.Component {
       }
 
     } else {
+      // const currTime = this.state.currentTimeRemaining
+
       this.setState((prevState) => ({
         currentTimeRemaining: (prevState.currentTimeRemaining - 1)
       }))
-      this.playSound(this.state.currentTimeRemaining)
+
+      // this.playSound(currTime)
+
     }
   }
 
