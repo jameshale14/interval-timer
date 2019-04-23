@@ -100,7 +100,7 @@ exports[`Should stop the interval after all of the steps have completed 1`] = `
     <h1
       data-testid="time-remaining"
     >
-      0
+      1
     </h1>
     <button>
       Start

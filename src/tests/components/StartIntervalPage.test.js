@@ -119,7 +119,8 @@ test('When the timer reaches zero, the next second should set the interval step 
     preventDefault: () => { }
   })
 
-  jest.advanceTimersByTime(1000 * (parseInt(intervals[0].steps[0].duration) + 1))
+  // jest.advanceTimersByTime(1000 * (parseInt(intervals[0].steps[0].duration) + 1))
+  jest.advanceTimersByTime(1000 * (parseInt(intervals[0].steps[0].duration)))
 
   const currentStepName = getByTestId('step-name')
   const currentTimeRemaining = getByTestId('time-remaining')
@@ -148,7 +149,7 @@ test('Should stop the interval after all of the steps have completed', () => {
 
   const lastStepIndex = intervals[0].steps.length - 1
   expect(currentStepName).toHaveTextContent(intervals[0].steps[lastStepIndex].name)
-  expect(currentTimeRemaining).toHaveTextContent(0)
+  expect(currentTimeRemaining).toHaveTextContent(1)
   expect(setInterval).toHaveBeenCalledTimes(1)
   expect(clearInterval).toHaveBeenCalledTimes(1)
   expect(container).toMatchSnapshot()
